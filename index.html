@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#100f10">
-<meta name="description" content="Свадьба Софьи и Александра — 11 сентября 2027 года. Приглашение, программа дня, место встречи и подтверждение присутствия.">
+<meta name="description" content="Свадьба Александра и Софьи — 11 сентября 2027 года. Приглашение, программа дня, место встречи и подтверждение присутствия.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Pinyon+Script&display=swap" rel="stylesheet">
-<title>Софья & Александр — 11.09.2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Pinyon+Script&family=Bad+Script&display=swap" rel="stylesheet">
+<title>Александр & Софья — 11.09.2027</title>
 <style>
 
 :root{--ink:#100e10;--ink2:#171315;--panel:#1d1718;--gold:#c6a078;--gold-light:#ead2b4;--ivory:#f0e4d7;--muted:#c2b1a2;--wine:#702638;--line:rgba(206,166,123,.52);--serif:"Cormorant Garamond",Georgia,serif;--sans:Arial,sans-serif}
@@ -527,17 +527,440 @@ p{font-weight:400}
   letter-spacing:0;
 }
 
+
+/* Corrected envelope: tailored velvet stationery, not a photograph of loose fabric */
+.envelope-screen{background:radial-gradient(ellipse at 50% 42%,#352027 0%,#1a1217 58%,#080708 100%)}
+.velvet-envelope{overflow:visible;isolation:isolate;border-radius:5px}
+.envelope-back{
+ z-index:0;
+ background-color:#641b31;
+ background-image:
+  radial-gradient(ellipse at 18% 18%,rgba(255,220,210,.10),transparent 38%),
+  radial-gradient(ellipse at 82% 78%,rgba(0,0,0,.28),transparent 45%),
+  repeating-linear-gradient(112deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,.025) 1px 3px,transparent 3px 6px),
+  linear-gradient(135deg,#7b2942 0%,#571629 42%,#741f38 72%,#45101f 100%);
+ box-shadow:inset 0 0 0 1px rgba(245,210,165,.8),inset 0 0 30px rgba(18,2,8,.42),0 0 0 1px rgba(245,210,165,.22)
+}
+.envelope-back:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,transparent 20%,rgba(255,255,255,.045) 48%,transparent 68%);opacity:.7}
+.envelope-letter{
+ z-index:1;inset:7% 7% 9%;height:84%;border:1px solid rgba(130,91,61,.25);
+ background:linear-gradient(145deg,#f6ead9 0%,#e9d8c1 55%,#d9c2a7 100%);
+ box-shadow:0 8px 24px rgba(0,0,0,.25);
+ transform:translateY(10%);
+}
+.envelope-flap{
+ z-index:5;height:57%;
+ background:
+  repeating-linear-gradient(112deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,.025) 1px 3px,transparent 3px 6px),
+  linear-gradient(145deg,#842c47 0%,#681b34 48%,#4c1327 100%);
+ clip-path:polygon(0 0,100% 0,50% 100%);
+ border-top:1px solid rgba(255,225,185,.5);
+ transform-origin:50% 0;
+ backface-visibility:visible;
+}
+.envelope-fold-left{z-index:3;background:linear-gradient(115deg,#74243d,#53162b 78%);clip-path:polygon(0 0,51% 52%,0 100%);border-left:1px solid rgba(244,207,160,.65)}
+.envelope-fold-right{z-index:3;background:linear-gradient(245deg,#79263f,#4b1226 78%);clip-path:polygon(100% 0,49% 52%,100% 100%);border-right:1px solid rgba(244,207,160,.65)}
+.envelope-fold-bottom{z-index:4;background:linear-gradient(0deg,#4a1226 0%,#681b34 100%);clip-path:polygon(0 100%,50% 48%,100% 100%);border-bottom:1px solid rgba(244,207,160,.85)}
+.wax-seal{z-index:7}
+.envelope-hint{margin-top:2px}
+/* Added: alternating timeline cards and a heart that is positioned from the SVG path itself */
+.timeline{max-width:980px;margin:54px auto 0;position:relative;padding:18px 0 10px;text-align:left;isolation:isolate}
+.timeline-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.timeline-track,.timeline-fill{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.35;vector-effect:non-scaling-stroke}
+.timeline-track{stroke:rgba(201,164,123,.48)}
+.timeline-fill{stroke:#e6c69e;stroke-width:1.8;filter:drop-shadow(0 0 5px rgba(230,198,158,.8))}
+.timeline-heart{position:absolute;left:0;top:0;z-index:5;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 28%,#fff0c9,#d8ad68 48%,#98672f 100%);border:1px solid #f3d9a7;color:#5b2030;font-size:20px;line-height:1;box-shadow:0 0 0 5px rgba(218,177,112,.13),0 0 24px rgba(235,197,137,.62);transform:translate(-50%,-50%);pointer-events:none;will-change:left,top}
+.event{z-index:1;display:block;width:50%;min-height:170px;padding:22px 38px 42px;opacity:.72;transform:translateY(7px);transition:opacity .5s ease,transform .5s ease;text-align:left}
+.event:nth-of-type(odd){margin-left:50%;padding-left:58px}
+.event:nth-of-type(even){margin-right:50%;padding-right:58px;text-align:right}
+.event:last-child{padding-bottom:22px}
+.event-dot{position:absolute;top:20px;width:38px;height:38px;border-radius:50%;background:#1b1517;border:1px solid rgba(218,177,112,.75);font-size:17px}
+.event:nth-of-type(odd) .event-dot{left:-19px}
+.event:nth-of-type(even) .event-dot{right:-19px}
+.event h3{font-size:clamp(27px,4vw,39px);line-height:1.12;margin:9px 0 8px}
+.event time{font-size:13px;letter-spacing:.28em}
+.event p{font-size:16px;line-height:1.65}
+@media(max-width:700px){
+ .envelope-screen{padding:16px}.envelope-screen:before{inset:10px}
+ .velvet-envelope{width:min(91vw,560px);height:clamp(260px,43vh,360px)}
+ .envelope-overline,.envelope-hint{font-size:9px;letter-spacing:.18em}
+ .timeline{margin-top:36px;padding:8px 0}
+ .timeline-svg{left:0;width:100%}
+ .timeline-heart{width:34px;height:34px;font-size:16px}
+ .event{width:50%;min-height:154px;padding:18px 14px 34px}
+ .event:nth-of-type(odd){margin-left:50%;padding-left:24px}
+ .event:nth-of-type(even){margin-right:50%;padding-right:24px}
+ .event-dot{width:29px;height:29px;top:16px;font-size:14px}
+ .event:nth-of-type(odd) .event-dot{left:-14px}
+ .event:nth-of-type(even) .event-dot{right:-14px}
+ .event h3{font-size:clamp(19px,4.8vw,27px);overflow-wrap:anywhere}
+ .event time{font-size:10px;letter-spacing:.16em}
+ .event p{font-size:12px;line-height:1.5}
+}
+@media(prefers-reduced-motion:reduce){
+ .envelope-hint{animation:none}
+ .envelope-screen,.envelope-flap,.envelope-letter,.wax-seal{transition-duration:.01ms}
+}
+
+
+/* Final cascade fix: restore the actual SVG wave above all legacy timeline rules */
+.timeline{position:relative;overflow:visible}
+.timeline:before{display:none!important;content:none!important}
+.timeline-svg{display:block!important;visibility:visible!important;position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:visible!important;pointer-events:none!important}
+.timeline-track{stroke:rgba(226,190,145,.68)!important;stroke-width:2.2!important;filter:drop-shadow(0 0 3px rgba(218,177,112,.35))}
+.timeline-fill{stroke:#f0d2a2!important;stroke-width:2.5!important;filter:drop-shadow(0 0 6px rgba(240,210,162,.8))}
+.timeline-heart{z-index:6!important}
+.event{z-index:2!important}
+.event-dot{z-index:4!important}
+@media(max-width:700px){
+ .timeline-svg{display:block!important}
+}
+
+
+/* Envelope geometry rebuilt to match the supplied reference */
+.envelope-screen{
+ position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+ padding:28px 18px;background:radial-gradient(ellipse at 50% 42%,#302027 0%,#171116 62%,#080708 100%);
+}
+.envelope-screen:before{content:"";position:absolute;inset:14px;border:1px solid rgba(220,184,133,.38);pointer-events:none}
+.envelope-intro{position:relative;z-index:1;width:min(100%,620px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.envelope-overline,.envelope-hint{color:#ead4b2;text-align:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;text-shadow:0 2px 8px #000}
+.velvet-envelope{
+ position:relative;display:block;flex:none;width:min(78vw,430px);height:min(112vw,610px);min-height:440px;
+ padding:0;margin:0;border:0;background:transparent;cursor:pointer;appearance:none;
+ perspective:1200px;isolation:isolate;overflow:visible;border-radius:3px;
+ filter:drop-shadow(0 24px 28px rgba(0,0,0,.38));
+}
+.envelope-back,.envelope-letter,.envelope-flap,.envelope-fold,.wax-seal{position:absolute;display:block;box-sizing:border-box}
+.envelope-back{inset:28% 0 0;z-index:0;border:1px solid rgba(241,208,162,.72);border-radius:2px 2px 5px 5px}
+.envelope-letter{
+ z-index:1;left:7%;right:7%;top:2%;height:66%;padding:54px 22px 20px;
+ display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;
+ border-radius:2px;background:
+  radial-gradient(ellipse at 25% 15%,rgba(255,255,255,.72),transparent 48%),
+  repeating-linear-gradient(0deg,rgba(120,92,65,.025) 0 1px,transparent 1px 4px),
+  linear-gradient(145deg,#f7efdf,#e8dac6);
+ color:#592235;box-shadow:0 7px 18px #0003;transition:transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.letter-kicker{font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:22px;color:#795b4a}
+.letter-names{font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(25px,5vw,37px);line-height:1.2;white-space:nowrap}
+.letter-names i{color:#a8793e;font-style:normal}
+.letter-date{margin-top:18px;font-size:12px;letter-spacing:.3em;color:#775d4c}
+.envelope-fold{inset:28% 0 0;pointer-events:none}
+.envelope-fold-left{z-index:3;background:linear-gradient(120deg,#7a2943,#57172d 80%);clip-path:polygon(0 0,52% 50%,0 100%);border-left:1px solid rgba(245,213,168,.7)}
+.envelope-fold-right{z-index:3;background:linear-gradient(240deg,#79263f,#4c1328 80%);clip-path:polygon(100% 0,48% 50%,100% 100%);border-right:1px solid rgba(245,213,168,.7)}
+.envelope-fold-bottom{z-index:4;background:linear-gradient(155deg,#76243e,#4e1429);clip-path:polygon(0 100%,50% 42%,100% 100%);border-bottom:1px solid rgba(245,213,168,.8);filter:drop-shadow(0 -2px 2px #0002)}
+.envelope-flap{
+ z-index:5;left:0;right:0;top:28%;height:38%;
+ background:linear-gradient(150deg,#812d48,#651b35 54%,#4b1227);
+ clip-path:polygon(0 0,100% 0,50% 100%);
+ border-top:1px solid rgba(245,213,168,.75);transform-origin:50% 0;
+ transition:transform 1s cubic-bezier(.22,.72,.2,1);backface-visibility:visible;
+}
+.wax-seal{
+ z-index:7;left:50%;top:47%;width:92px;height:92px;transform:translate(-50%,-50%);
+ display:grid;place-items:center;border-radius:50%;color:#f8e4b5;font:16px "Bodoni Moda",Georgia,serif;
+ background:radial-gradient(circle at 34% 28%,#fff0bf 0%,#d9b36e 22%,#a97838 58%,#68431f 100%);
+ border:3px double #f1d49a;box-shadow:0 2px 5px #0008,0 0 0 5px rgba(220,178,104,.12),inset 0 0 0 2px rgba(255,239,194,.45);
+ transition:opacity .35s,transform .55s;
+}
+.wax-seal:before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,241,199,.65);border-radius:50%}
+.envelope-hint{margin-top:0;animation:hintPulse 2.2s ease-in-out infinite}
+.velvet-envelope:focus-visible{outline:2px solid #f1d49a;outline-offset:8px}
+.velvet-envelope.is-opening .envelope-flap{transform:rotateX(180deg)}
+.velvet-envelope.is-opening .envelope-letter{transform:translateY(-18%)}
+.velvet-envelope.is-opening .wax-seal{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+@media(max-width:700px){
+ .envelope-screen{padding:20px 14px}
+ .envelope-intro{gap:17px}
+ .velvet-envelope{width:min(84vw,390px);height:min(118vw,540px);min-height:410px}
+ .wax-seal{width:76px;height:76px;font-size:14px}
+ .letter-kicker{font-size:8px;margin-bottom:17px}
+ .letter-names{font-size:clamp(23px,6vw,31px)}
+ .envelope-overline,.envelope-hint{font-size:9px;letter-spacing:.15em}
+}
+
+/* Keep the wave in a narrow central lane; event copy stays in clear left/right columns */
+.timeline{max-width:980px;margin:54px auto 0;padding:18px 0 10px;position:relative;isolation:isolate}
+.timeline-svg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;z-index:0!important}
+.timeline-track{d:path("M50 0 C50 7 44 9 44 17 C44 25 56 25 56 33 C56 41 44 42 44 50 C44 58 56 59 56 67 C56 75 44 76 44 84 C44 92 50 94 50 100")!important}
+.timeline-fill{d:path("M50 0 C50 7 44 9 44 17 C44 25 56 25 56 33 C56 41 44 42 44 50 C44 58 56 59 56 67 C56 75 44 76 44 84 C44 92 50 94 50 100")!important}
+.event{width:42%!important;min-height:176px!important;padding:20px 12px 40px!important;box-sizing:border-box}
+.event:nth-of-type(odd){margin-left:58%!important;padding-left:10px!important;text-align:left!important}
+.event:nth-of-type(even){margin-right:58%!important;padding-right:10px!important;text-align:right!important}
+.event-dot{display:none!important}
+.event h3{font-size:clamp(25px,3vw,38px)!important;line-height:1.15}
+.event time{font-size:14px!important}
+.event p{font-size:15px!important}
+@media(max-width:700px){
+ .timeline{margin-top:34px!important}
+ .event{width:43%!important;min-height:160px!important;padding:18px 6px 32px!important}
+ .event:nth-of-type(odd){margin-left:57%!important;padding-left:6px!important}
+ .event:nth-of-type(even){margin-right:57%!important;padding-right:6px!important}
+ .event h3{font-size:clamp(19px,4.5vw,25px)!important}
+ .event time{font-size:10px!important}
+ .event p{font-size:11px!important}
+ .timeline-heart{width:32px!important;height:32px!important;font-size:15px!important}
+}
+
+
+/* Realistic closed/open envelope: hide the insert until the flap lifts */
+.velvet-envelope{
+ width:min(72vw,410px)!important;height:min(104vw,570px)!important;min-height:430px!important;
+ filter:drop-shadow(0 26px 28px rgba(0,0,0,.48))!important;
+}
+.envelope-back{
+ inset:0!important;z-index:0!important;border:1px solid rgba(239,207,157,.72)!important;
+ border-radius:3px!important;
+ background:
+  linear-gradient(145deg,rgba(255,255,255,.10),transparent 28%,rgba(0,0,0,.18) 100%),
+  url("assets/fabric-burgundy.jpg") center/cover,
+  linear-gradient(135deg,#64172e,#3c0c1e)!important;
+ box-shadow:inset 0 0 0 1px rgba(255,235,198,.14),inset 0 -22px 32px rgba(20,0,8,.3),0 12px 24px rgba(0,0,0,.22)!important;
+}
+.envelope-back:after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 24%,transparent 72%,rgba(0,0,0,.2));
+}
+.envelope-letter{
+ z-index:1!important;left:8%!important;right:8%!important;top:5%!important;height:78%!important;
+ padding:62px 18px 20px!important;border:1px solid rgba(142,111,79,.35)!important;
+ background:
+  radial-gradient(ellipse at 28% 10%,rgba(255,255,255,.8),transparent 55%),
+  repeating-linear-gradient(0deg,rgba(111,83,58,.025) 0 1px,transparent 1px 4px),
+  linear-gradient(145deg,#fff9ed,#eee0ca 70%,#ddc9ad)!important;
+ box-shadow:0 9px 24px rgba(0,0,0,.28)!important;
+ opacity:0!important;visibility:hidden!important;transform:translateY(12%)!important;
+ transition:transform 1.05s cubic-bezier(.2,.7,.2,1),opacity .55s ease,visibility 0s linear 1.05s!important;
+}
+.envelope-fold{inset:0!important}
+.envelope-fold-left{
+ z-index:3!important;background:
+  linear-gradient(115deg,rgba(255,255,255,.08),transparent 40%,rgba(0,0,0,.14)),
+  url("assets/fabric-burgundy.jpg") center/cover!important;
+ clip-path:polygon(0 28%,52% 52%,0 100%)!important;border-left:1px solid rgba(244,207,160,.72)!important;
+}
+.envelope-fold-right{
+ z-index:3!important;background:
+  linear-gradient(245deg,rgba(255,255,255,.07),transparent 45%,rgba(0,0,0,.16)),
+  url("assets/fabric-burgundy.jpg") center/cover!important;
+ clip-path:polygon(100% 28%,48% 52%,100% 100%)!important;border-right:1px solid rgba(244,207,160,.72)!important;
+}
+.envelope-fold-bottom{
+ z-index:4!important;background:
+  linear-gradient(0deg,rgba(0,0,0,.18),rgba(255,255,255,.04)),
+  url("assets/fabric-burgundy.jpg") center/cover!important;
+ clip-path:polygon(0 100%,50% 48%,100% 100%)!important;border-bottom:1px solid rgba(244,207,160,.82)!important;
+}
+.envelope-flap{
+ z-index:5!important;left:0!important;right:0!important;top:0!important;height:57%!important;
+ background:
+  linear-gradient(155deg,rgba(255,255,255,.12),transparent 40%,rgba(0,0,0,.2)),
+  url("assets/fabric-burgundy.jpg") center/cover!important;
+ clip-path:polygon(0 0,100% 0,50% 100%)!important;
+ border:1px solid rgba(245,213,168,.78)!important;border-bottom:0!important;
+ transform-origin:50% 0!important;
+ transition:transform 1.05s cubic-bezier(.2,.72,.2,1)!important;
+ backface-visibility:hidden!important;
+}
+.wax-seal{
+ z-index:7!important;top:48%!important;width:88px!important;height:88px!important;
+ background:
+  radial-gradient(circle at 32% 25%,#fff3c7 0%,#e4bd72 18%,#b57c36 56%,#71451e 100%)!important;
+ border:3px double #f6dfa8!important;box-shadow:0 4px 8px #0008,0 0 0 5px rgba(230,186,109,.15),inset 0 0 0 2px rgba(255,239,194,.5)!important;
+}
+.wax-seal:before{inset:8px!important;border:1px solid rgba(255,241,199,.8)!important}
+.velvet-envelope.is-opening .envelope-flap{transform:rotateX(180deg)!important}
+.velvet-envelope.is-opening .envelope-letter{
+ opacity:1!important;visibility:visible!important;transform:translateY(-13%)!important;
+ transition:transform 1.05s cubic-bezier(.2,.7,.2,1),opacity .55s ease .18s,visibility 0s!important;
+}
+.velvet-envelope.is-opening .wax-seal{opacity:0!important;transform:translate(-50%,-50%) scale(.72)!important}
+@media(max-width:700px){
+ .velvet-envelope{width:min(78vw,360px)!important;height:min(112vw,500px)!important;min-height:390px!important}
+ .envelope-letter{padding:48px 12px 16px!important}
+ .wax-seal{width:76px!important;height:76px!important}
+}
+
+
+/* Pinterest reference: diagonal burgundy envelope with a delicate lace edge */
+.envelope-screen{
+ background:radial-gradient(ellipse at 50% 42%,#342027 0%,#191216 62%,#090809 100%)!important;
+}
+.velvet-envelope{
+ width:min(72vw,450px)!important;
+ height:min(100vw,590px)!important;
+ min-height:430px!important;
+ overflow:visible!important;
+ filter:drop-shadow(0 25px 30px rgba(0,0,0,.48))!important;
+}
+.envelope-back{
+ inset:0!important;
+ z-index:0!important;
+ border:1px solid rgba(222,174,133,.65)!important;
+ border-radius:3px!important;
+ background:
+   radial-gradient(ellipse at 24% 20%,rgba(255,255,255,.08),transparent 38%),
+   radial-gradient(ellipse at 78% 82%,rgba(0,0,0,.24),transparent 45%),
+   repeating-linear-gradient(108deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,.025) 1px 3px,transparent 3px 6px),
+   linear-gradient(135deg,#681b30 0%,#4d1022 50%,#65182e 100%)!important;
+ box-shadow:inset 0 0 0 1px rgba(255,230,194,.13),inset 0 0 35px rgba(15,0,5,.38),0 12px 26px rgba(0,0,0,.28)!important;
+}
+.envelope-back:after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:
+  linear-gradient(135deg,rgba(255,255,255,.07),transparent 22%,transparent 75%,rgba(0,0,0,.12)),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);
+}
+.envelope-letter{
+ z-index:1!important;
+ left:7%!important;right:7%!important;top:5%!important;height:88%!important;
+ padding:62px 18px 24px!important;
+ opacity:0!important;visibility:hidden!important;
+ transform:translateY(5%)!important;
+ background:
+   radial-gradient(ellipse at 30% 10%,rgba(255,255,255,.7),transparent 45%),
+   repeating-linear-gradient(0deg,rgba(120,92,65,.025) 0 1px,transparent 1px 4px),
+   linear-gradient(145deg,#f7efdf,#e8dac6)!important;
+ box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+ transition:transform 1.05s cubic-bezier(.2,.7,.2,1),opacity .55s ease .2s,visibility 0s linear 0s!important;
+}
+.envelope-fold{display:none!important}
+.envelope-flap{
+ z-index:5!important;
+ left:0!important;top:0!important;width:100%!important;height:100%!important;
+ background:
+   radial-gradient(ellipse at 15% 18%,rgba(255,255,255,.09),transparent 38%),
+   repeating-linear-gradient(108deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,.025) 1px 3px,transparent 3px 6px),
+   linear-gradient(135deg,#741f37 0%,#5a1429 54%,#45101f 100%)!important;
+ clip-path:polygon(0 0,68% 50%,0 100%)!important;
+ border:0!important;
+ transform-origin:0% 50%!important;
+ transform:rotateY(0deg)!important;
+ backface-visibility:hidden!important;
+ transition:transform 1.05s cubic-bezier(.22,.72,.2,1)!important;
+ filter:drop-shadow(3px 0 5px rgba(0,0,0,.25))!important;
+}
+.envelope-flap:before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:
+  linear-gradient(135deg,rgba(255,255,255,.08),transparent 25%,rgba(0,0,0,.10)),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px);
+ clip-path:polygon(0 0,68% 50%,0 100%);
+}
+.envelope-flap:after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M1 1 L68 50 L1 99' fill='none' stroke='%239b5264' stroke-width='5' stroke-dasharray='0.5 2.1' stroke-linecap='round'/%3E%3Cpath d='M3 1 L69 50 L3 99' fill='none' stroke='%233e0b1c' stroke-width='1.1'/%3E%3Cpath d='M0 0 L68 50 L0 100' fill='none' stroke='%23a75d70' stroke-width='.65'/%3E%3C/svg%3E");
+ background-size:100% 100%;opacity:.9;
+}
+.wax-seal{
+ z-index:7!important;left:68%!important;top:50%!important;
+ width:76px!important;height:76px!important;
+ transform:translate(-50%,-50%)!important;
+ background:radial-gradient(circle at 34% 28%,#fff0bf 0%,#d9b36e 22%,#a97838 58%,#68431f 100%)!important;
+ border:3px double #f1d49a!important;
+ box-shadow:0 3px 8px #0009,0 0 0 4px rgba(220,178,104,.12),inset 0 0 0 2px rgba(255,239,194,.45)!important;
+ transition:opacity .35s,transform .55s!important;
+}
+.wax-seal:before{inset:8px!important;border:1px solid rgba(255,241,199,.8)!important}
+.velvet-envelope.is-opening .envelope-flap{
+ transform:rotateY(-168deg)!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+ opacity:1!important;visibility:visible!important;
+ transform:translateY(-5%)!important;
+}
+.velvet-envelope.is-opening .wax-seal{
+ opacity:0!important;transform:translate(-50%,-50%) scale(.72)!important;
+}
+@media(max-width:700px){
+ .velvet-envelope{width:min(82vw,390px)!important;height:min(114vw,535px)!important;min-height:400px!important}
+ .envelope-letter{padding:48px 12px 16px!important}
+ .wax-seal{width:66px!important;height:66px!important;font-size:13px!important}
+}
+
+
+/* FINAL ENVELOPE REBUILD — photographic velvet and real lace texture */
+.envelope-screen{background:radial-gradient(ellipse at 50% 45%,#302027 0%,#171116 64%,#080708 100%)!important}
+.envelope-intro{width:min(100%,650px)!important;gap:20px!important}
+.velvet-envelope{
+ width:min(72vw,430px)!important;height:min(108vw,650px)!important;min-height:0!important;
+ position:relative!important;overflow:visible!important;border:0!important;border-radius:3px!important;
+ background:transparent!important;filter:drop-shadow(0 22px 30px rgba(0,0,0,.45))!important;
+}
+.envelope-letter{
+ z-index:1!important;left:7%!important;right:7%!important;top:4%!important;height:88%!important;
+ padding:60px 18px 20px!important;opacity:0!important;visibility:hidden!important;
+ transform:translateY(4%) scale(.985)!important;
+ background:radial-gradient(ellipse at 25% 12%,rgba(255,255,255,.75),transparent 48%),linear-gradient(145deg,#fbf1df,#e8d8c3 58%,#d9c3a9)!important;
+ border:1px solid rgba(177,139,99,.45)!important;box-shadow:0 16px 34px rgba(0,0,0,.34)!important;
+ transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .55s ease .18s,visibility 0s linear .9s!important;
+}
+.envelope-photo{
+ position:absolute!important;inset:0!important;z-index:5!important;display:block!important;
+ background-image:url("assets/envelope-velvet-lace.jpg")!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;
+ border-radius:3px!important;transform-origin:65% 52%!important;
+ transition:transform 1.05s cubic-bezier(.2,.7,.2,1),opacity .65s ease .35s!important;
+ pointer-events:none!important;
+}
+.wax-seal{
+ z-index:8!important;left:65%!important;top:52%!important;width:86px!important;height:86px!important;
+ transform:translate(-50%,-50%)!important;color:#fff0c7!important;
+ background:radial-gradient(circle at 34% 26%,#fff4cb 0%,#e5bd72 24%,#b47b35 58%,#75451e 100%)!important;
+ border:3px double #f7dfa8!important;box-shadow:0 3px 9px #0009,0 0 0 5px rgba(220,178,104,.15),inset 0 0 0 2px rgba(255,239,194,.5)!important;
+ transition:opacity .35s ease,transform .5s ease!important;
+}
+.wax-seal:before{inset:8px!important;border:1px solid rgba(255,241,199,.8)!important}
+.velvet-envelope.is-opening .envelope-photo{transform:translateX(-108%) rotate(-2deg)!important;opacity:0!important}
+.velvet-envelope.is-opening .envelope-letter{
+ opacity:1!important;visibility:visible!important;transform:translateY(-2%) scale(1)!important;
+ transition:transform .95s cubic-bezier(.2,.7,.2,1),opacity .55s ease .2s,visibility 0s!important;
+}
+.velvet-envelope.is-opening .wax-seal{opacity:0!important;transform:translate(-50%,-50%) scale(.72)!important}
+@media(max-width:700px){
+ .envelope-screen{padding:16px 12px!important}
+ .envelope-intro{gap:16px!important}
+ .velvet-envelope{width:min(82vw,390px)!important;height:min(122vw,590px)!important}
+ .envelope-letter{padding:52px 10px 16px!important}
+ .wax-seal{width:72px!important;height:72px!important;font-size:13px!important}
+ .letter-kicker{font-size:8px!important;margin-bottom:16px!important}
+ .letter-names{font-size:clamp(22px,6vw,30px)!important}
+ .envelope-overline,.envelope-hint{font-size:9px!important;letter-spacing:.14em!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .envelope-photo,.envelope-letter,.wax-seal{transition-duration:.01ms!important}
+}
+
 </style>
 </head>
 <body>
 <div class="top-progress"><span id="progress"></span></div>
 
+<div class="envelope-screen" id="envelopeScreen" role="dialog" aria-label="Свадебное приглашение">
+  <div class="envelope-intro">
+    <div class="envelope-overline">Приглашение на свадьбу · 11.09.2027</div>
+    <button class="velvet-envelope" id="envelopeSeal" type="button" aria-label="Открыть приглашение">
+      <span class="envelope-back" aria-hidden="true"></span>
+      <span class="envelope-letter">
+        <span class="letter-kicker">С любовью приглашаем<br>разделить этот день с нами</span>
+        <span class="letter-names">Александр&amp;Софья</span>
+        <span class="letter-date">11.09.27</span>
+      </span>
+      <img class="envelope-panel panel-right" src="assets/envelope-panel-2.png" alt="" aria-hidden="true">
+      <img class="envelope-panel panel-top" src="assets/envelope-panel-3.png" alt="" aria-hidden="true">
+      <img class="envelope-panel panel-bottom" src="assets/envelope-panel-4.png" alt="" aria-hidden="true">
+      <img class="envelope-panel panel-left" src="assets/envelope-panel-1.png" alt="" aria-hidden="true">
+    </button>
+    <div class="envelope-hint">КОСНИТЕСЬ ЗОЛОТОЙ ПЕЧАТИ, ЧТОБЫ ОТКРЫТЬ</div>
+  </div>
+</div>
+
 <header class="hero">
-  <img src="assets/couple-cover.jpeg" alt="Чёрно-белая фотография Софьи и Александра">
+  <img src="assets/couple-cover.jpeg" alt="Чёрно-белая фотография Александра и Софьи">
   <div class="hero-content">
     <div class="hero-frame">
       <div class="eyebrow">Приглашение на нашу свадьбу</div>
-      <h1>Софья <span>&</span> Александр</h1>
+      <h1>Александр<span>&</span>Софья</h1>
       <div class="date">11 · 09 · 2027</div>
       <div class="rule"></div>
       <p>Будем счастливы разделить с вами этот особенный день</p>
@@ -559,7 +982,7 @@ p{font-weight:400}
       <p class="gold" style="font-style:italic">Она растёт, расцветает и становится вечностью.</p>
     </div>
     <div class="photo-frame story-photo fade">
-      <img src="assets/couple-story.jpeg" alt="Фотография, напоминающая о любви Софьи и Александра">
+      <img src="assets/couple-story.jpeg" alt="Фотография, напоминающая о любви Александра и Софьи">
     </div>
   </div>
 <div class="floral-layer" aria-hidden="true"><img class="new-bloom bloom-a" src="assets/flower-variety-3.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-b" src="assets/flower-variety-1.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-c" src="assets/flower-variety-4.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-d" src="assets/flower-variety-2.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-e" src="assets/flower-variety-1.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-f" src="assets/flower-variety-2.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-g" src="assets/flower-variety-3.png" alt="" aria-hidden="true" loading="lazy"></div>
@@ -573,14 +996,20 @@ p{font-weight:400}
     <h2>Программа торжества</h2>
     <p>Будем рады провести этот день вместе с вами</p>
     <div class="timeline" id="timeline" aria-label="Хронология свадебного дня">
-      <svg class="timeline-svg" id="timelineSvg" viewBox="0 0 48 100" preserveAspectRatio="none" aria-hidden="true">
-        <path class="timeline-track" d="M24 0 C8 12 40 22 24 34 S8 56 24 68 S40 88 24 100" />
-        <path class="timeline-fill" id="timelineProgress" d="M24 0 C8 12 40 22 24 34 S8 56 24 68 S40 88 24 100" />
+      <svg class="timeline-svg" id="timelineSvg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="timeline-track" id="timelineTrack" d="M50 0 C50 7 44 9 44 17 C44 25 56 25 56 33 C56 41 44 42 44 50 C44 58 56 59 56 67 C56 75 44 76 44 84 C44 92 50 94 50 100" />
+        <path class="timeline-fill" id="timelineProgress" d="M50 0 C50 7 44 9 44 17 C44 25 56 25 56 33 C56 41 44 42 44 50 C44 58 56 59 56 67 C56 75 44 76 44 84 C44 92 50 94 50 100" />
       </svg>
+      <div class="timeline-heart" id="timelineHeart" aria-hidden="true">
+        <svg class="timeline-heart-drawing" viewBox="0 0 100 100" focusable="false">
+          <path d="M50 88 C39 77 13 57 10 35 C7 16 20 7 34 11 C43 13 49 22 51 33 C55 17 68 5 82 10 C99 16 96 39 86 55 C76 70 61 81 50 88Z"/>
+          <path d="M50 84 C37 71 17 54 15 36 C13 21 24 13 35 16 C44 18 49 28 51 39 C56 22 68 12 80 15 C92 18 91 38 82 53 C72 68 60 78 50 84Z"/>
+        </svg>
+      </div>
       <article class="event fade"><div class="event-dot">♡</div><div><time>13:00</time><h3>Торжественная часть</h3><p>Встречаемся в ЗАГСе, чтобы стать семьёй</p></div></article>
       <article class="event fade"><div class="event-dot">♡</div><div><time>15:00</time><h3>Сбор гостей</h3><p>Будем рады вашим улыбкам и объятиям</p></div></article>
-      <article class="event fade"><div class="event-dot">♡</div><div><time>15:40</time><h3>Начало банкета</h3><p>Время праздновать, танцевать и создавать воспоминания</p></div></article>
-      <article class="event fade"><div class="event-dot">♡</div><div><time>23:00</time><h3>Завершение вечера</h3><p>До новых тёплых встреч</p></div></article>
+      <article class="event fade"><div class="event-dot">♡</div><div><time>15:30</time><h3>Начало банкета</h3><p>Время праздновать, танцевать и создавать воспоминания</p></div></article>
+      <article class="event fade"><div class="event-dot">♡</div><div><time>21:00</time><h3>Завершение вечера</h3><p>До новых тёплых встреч</p></div></article>
     </div>
   </div>
 <div class="floral-layer" aria-hidden="true"><img class="new-bloom bloom-a" src="assets/flower-variety-2.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-b" src="assets/flower-variety-4.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-c" src="assets/flower-variety-1.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-d" src="assets/flower-variety-3.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-e" src="assets/flower-variety-1.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-f" src="assets/flower-variety-2.png" alt="" aria-hidden="true" loading="lazy"><img class="new-bloom bloom-g" src="assets/flower-variety-3.png" alt="" aria-hidden="true" loading="lazy"></div>
@@ -717,7 +1146,7 @@ p{font-weight:400}
   <img class="site-flower footer-flower three" src="assets/floral-burgundy-b.png" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="eyebrow">С любовью</div>
-    <div class="names">Софья <span style="color:var(--gold-light)">&</span> Александр</div>
+    <div class="names">Александр<span style="color:var(--gold-light)">&</span>Софья</div>
     <div class="rule"></div>
     <p>11 · 09 · 2027</p>
     <p class="quote" style="font-size:20px;color:#c6b7aa">Из повседневности рождается любовь.<br>Она растёт, расцветает и становится вечностью.</p>
@@ -747,30 +1176,55 @@ if(!reduceMotion && 'IntersectionObserver' in window){
 }
 
 const timeline=document.getElementById('timeline');
+const timelineSvg=document.getElementById('timelineSvg');
+const timelineTrack=document.getElementById('timelineTrack');
 const timelineProgress=document.getElementById('timelineProgress');
+const timelineHeart=document.getElementById('timelineHeart');
 const events=[...document.querySelectorAll('.event')];
-let timelineLength=0;
-if(timelineProgress){timelineLength=timelineProgress.getTotalLength();timelineProgress.style.strokeDasharray=timelineLength;timelineProgress.style.strokeDashoffset=timelineLength;}
+let timelineLength=0, targetTimelineProgress=0.015, currentTimelineProgress=0.015, timelineFrame=0;
+if(timelineTrack && timelineProgress){
+  timelineLength=timelineTrack.getTotalLength();
+  timelineProgress.style.strokeDasharray=timelineLength;
+  timelineProgress.style.strokeDashoffset=timelineLength;
+}
+function paintTimeline(){
+  if(!timeline || !timelineTrack || !timelineSvg || !timelineHeart || !timelineLength)return;
+  const point=timelineTrack.getPointAtLength(timelineLength*currentTimelineProgress);
+  const x=point.x/100*timelineSvg.clientWidth;
+  const y=point.y/100*timelineSvg.clientHeight;
+  timelineHeart.style.left=x+'px';
+  timelineHeart.style.top=y+'px';
+  timelineProgress.style.strokeDashoffset=timelineLength*(1-currentTimelineProgress);
+}
+function animateTimeline(){
+  const delta=targetTimelineProgress-currentTimelineProgress;
+  currentTimelineProgress+=delta*.14;
+  if(Math.abs(delta)<.0008)currentTimelineProgress=targetTimelineProgress;
+  paintTimeline();
+  if(Math.abs(targetTimelineProgress-currentTimelineProgress)>.0008){
+    timelineFrame=requestAnimationFrame(animateTimeline);
+  }else{timelineFrame=0;}
+}
 function updateTimeline(){
   if(!timeline)return;
   const rect=timeline.getBoundingClientRect();
-  const center=window.innerHeight*.55;
-  const lineTravel=Math.max(0,rect.height-12);
-  const progressPx=Math.max(0,Math.min(lineTravel,center-rect.top-10));
-  if(timelineProgress && timelineLength){const ratio=progressPx/Math.max(1,lineTravel);timelineProgress.style.strokeDashoffset=timelineLength*(1-ratio);}
+  const anchor=window.innerHeight*.54;
+  targetTimelineProgress=Math.max(0,Math.min(1,(anchor-rect.top)/Math.max(1,rect.height)));
   let active=0,closest=Infinity;
   events.forEach((event,i)=>{
     const r=event.getBoundingClientRect();
-    const d=Math.abs((r.top+r.height/2)-center);
+    const d=Math.abs((r.top+r.height/2)-anchor);
     if(d<closest){closest=d;active=i;}
   });
   events.forEach((event,i)=>{
     event.classList.toggle('active',i===active);
     event.classList.toggle('seen',i<active);
   });
+  if(!timelineFrame)timelineFrame=requestAnimationFrame(animateTimeline);
 }
 window.addEventListener('scroll',updateTimeline,{passive:true});
-window.addEventListener('resize',updateTimeline);updateTimeline();
+window.addEventListener('resize',()=>{paintTimeline();updateTimeline();});
+updateTimeline();
 
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbyj2yQ3EGn5KrvldP_uFB3jyNEm5oC4_UmGfs4qQsda8UQ1i2dh_05Kg9yX182kerCbOg/exec';
 const form=document.getElementById('rsvpForm');
@@ -800,5 +1254,1016 @@ form.addEventListener('submit',async e=>{
   }
 });
 </script>
+<script>
+const envelopeScreen=document.getElementById('envelopeScreen');
+const envelopeSeal=document.getElementById('envelopeSeal');
+if(envelopeScreen && envelopeSeal){
+  document.body.classList.add('envelope-locked');
+  envelopeSeal.addEventListener('click',()=>{
+    if(envelopeSeal.classList.contains('is-opening'))return;
+    envelopeSeal.classList.add('is-opening');
+    window.setTimeout(()=>{
+      envelopeScreen.classList.add('is-dismissed');
+      document.body.classList.remove('envelope-locked');
+      window.setTimeout(()=>envelopeScreen.remove(),950);
+    },9000);
+  });
+}
+</script>
+
+<style>
+/* Four-panel opening: all four paper flaps move away together */
+.velvet-envelope{
+  width:min(72vw,450px)!important;
+  height:min(100vw,590px)!important;
+  min-height:430px!important;
+  overflow:visible!important;
+  perspective:1500px!important;
+  transform-style:preserve-3d!important;
+  background:transparent!important;
+}
+.velvet-envelope .envelope-back{
+  position:absolute!important;inset:0!important;z-index:0!important;
+  border:1px solid rgba(229,190,145,.8)!important;border-radius:3px!important;
+  background:
+    radial-gradient(ellipse at 25% 18%,rgba(255,226,205,.13),transparent 40%),
+    repeating-linear-gradient(112deg,rgba(255,255,255,.025) 0 1px,rgba(0,0,0,.035) 1px 3px,transparent 3px 6px),
+    linear-gradient(140deg,#741f38 0%,#581327 48%,#3e0d1d 100%)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,230,194,.2),inset 0 0 36px rgba(15,0,5,.38)!important;
+}
+.velvet-envelope .envelope-letter{
+  position:absolute!important;z-index:1!important;
+  left:7%!important;right:7%!important;top:7%!important;height:86%!important;
+  padding:24px 18px!important;margin:0!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:0!important;text-align:center!important;
+  background:
+    radial-gradient(ellipse at 30% 12%,rgba(255,255,255,.82),transparent 48%),
+    repeating-linear-gradient(0deg,rgba(120,92,65,.025) 0 1px,transparent 1px 4px),
+    linear-gradient(145deg,#fffaf0 0%,#f0e3d0 58%,#e4d2ba 100%)!important;
+  border:1px solid rgba(157,119,78,.35)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+  color:#9a713e!important;
+  opacity:0!important;visibility:hidden!important;
+  transform:scale(.96)!important;
+  transition:opacity .8s ease .45s,transform 1.25s cubic-bezier(.2,.7,.2,1) .15s,visibility 0s linear 1.4s!important;
+}
+.velvet-envelope .letter-kicker{
+  display:block!important;margin:0 0 24px!important;
+  color:#a47b45!important;font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(25px,4.5vw,39px)!important;line-height:1.15!important;
+  letter-spacing:.015em!important;text-transform:none!important;font-weight:400!important;
+}
+.velvet-envelope .letter-names{
+  display:block!important;white-space:normal!important;
+  color:#a77a3d!important;font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(34px,6vw,51px)!important;line-height:1.12!important;
+  letter-spacing:.015em!important;
+}
+.velvet-envelope .letter-date{
+  display:block!important;margin-top:24px!important;
+  color:#a47b45!important;font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(27px,4.8vw,38px)!important;line-height:1.1!important;
+  letter-spacing:.08em!important;
+}
+.velvet-envelope .envelope-photo{display:none!important}
+.velvet-envelope .envelope-flap,
+.velvet-envelope .envelope-fold{
+  position:absolute!important;display:block!important;inset:auto!important;
+  pointer-events:none!important;backface-visibility:hidden!important;
+  transform-style:preserve-3d!important;
+  transition:transform 1.45s cubic-bezier(.22,.72,.18,1)!important;
+  background:
+    radial-gradient(ellipse at 22% 18%,rgba(255,226,205,.12),transparent 42%),
+    repeating-linear-gradient(112deg,rgba(255,255,255,.022) 0 1px,rgba(0,0,0,.03) 1px 3px,transparent 3px 6px),
+    linear-gradient(140deg,#812942 0%,#64182f 52%,#491020 100%)!important;
+  border:1px solid rgba(239,201,156,.68)!important;
+  box-shadow:inset 0 0 16px rgba(20,0,8,.12)!important;
+}
+.velvet-envelope .flap-top{
+  z-index:5!important;left:0!important;top:0!important;width:100%!important;height:51%!important;
+  clip-path:polygon(0 0,100% 0,50% 100%)!important;
+  transform-origin:50% 0!important;
+}
+.velvet-envelope .flap-left{
+  z-index:4!important;left:0!important;top:0!important;width:51%!important;height:100%!important;
+  clip-path:polygon(0 0,100% 50%,0 100%)!important;
+  transform-origin:0 50%!important;
+}
+.velvet-envelope .flap-right{
+  z-index:4!important;right:0!important;top:0!important;width:51%!important;height:100%!important;
+  clip-path:polygon(100% 0,0 50%,100% 100%)!important;
+  transform-origin:100% 50%!important;
+}
+.velvet-envelope .flap-bottom{
+  z-index:6!important;left:0!important;bottom:0!important;width:100%!important;height:51%!important;
+  clip-path:polygon(0 100%,50% 0,100% 100%)!important;
+  transform-origin:50% 100%!important;
+}
+.velvet-envelope .wax-seal{
+  z-index:8!important;left:50%!important;top:50%!important;
+  width:100px!important;height:100px!important;
+  transform:translate(-50%,-50%)!important;
+  transition:opacity .45s ease,transform .7s ease!important;
+}
+.velvet-envelope.is-opening .flap-top{transform:rotateX(-165deg)!important}
+.velvet-envelope.is-opening .flap-left{transform:rotateY(-165deg)!important}
+.velvet-envelope.is-opening .flap-right{transform:rotateY(165deg)!important}
+.velvet-envelope.is-opening .flap-bottom{transform:rotateX(165deg)!important}
+.velvet-envelope.is-opening .envelope-letter{
+  opacity:1!important;visibility:visible!important;transform:scale(1)!important;
+  transition:opacity .8s ease .45s,transform 1.25s cubic-bezier(.2,.7,.2,1) .15s,visibility 0s!important;
+}
+.velvet-envelope.is-opening .wax-seal{
+  opacity:0!important;transform:translate(-50%,-50%) scale(.72)!important;
+}
+.envelope-screen.is-dismissed{opacity:0!important;visibility:hidden!important;transition:opacity .9s ease,visibility 0s linear .9s!important}
+@media(max-width:700px){
+ .velvet-envelope{width:min(82vw,390px)!important;height:min(112vw,540px)!important;min-height:390px!important}
+ .velvet-envelope .letter-kicker{font-size:clamp(23px,6vw,31px)!important;margin-bottom:19px!important}
+ .velvet-envelope .letter-names{font-size:clamp(30px,7vw,40px)!important}
+ .velvet-envelope .letter-date{font-size:clamp(25px,6vw,32px)!important;margin-top:20px!important}
+ .velvet-envelope .wax-seal{width:82px!important;height:82px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .velvet-envelope .flap-top,.velvet-envelope .flap-left,.velvet-envelope .flap-right,.velvet-envelope .flap-bottom,
+ .velvet-envelope .envelope-letter,.velvet-envelope .wax-seal{transition-duration:.01ms!important}
+}
+</style>
+
+
+<style>
+/* Visual replacement only: photographic burgundy velvet and lace, keeping the existing four-flap animation intact. */
+.velvet-envelope .envelope-back{
+  background:radial-gradient(ellipse at 24% 18%,rgba(255,220,210,.08),transparent 40%),repeating-linear-gradient(112deg,rgba(255,255,255,.018) 0 1px,rgba(0,0,0,.025) 1px 3px,transparent 3px 6px),linear-gradient(140deg,#64172e 0%,#4c1024 52%,#320817 100%)!important;
+  border:1px solid rgba(225,178,129,.62)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,235,205,.12),inset 0 0 28px rgba(20,0,8,.34)!important;
+}
+.velvet-envelope .envelope-flap,.velvet-envelope .envelope-fold{
+  background-color:transparent!important;background-repeat:no-repeat!important;
+  background-size:100% 100%!important;border:0!important;
+  box-shadow:none!important;
+}
+.velvet-envelope .flap-top{
+  inset:0!important;width:100%!important;height:100%!important;
+  clip-path:polygon(0 0,100% 0,50% 53.5%)!important;
+  background-image:url("assets/envelope-panel-top.png")!important;
+}
+.velvet-envelope .flap-left{
+  inset:0!important;width:100%!important;height:100%!important;
+  clip-path:polygon(0 0,50% 53.5%,0 100%)!important;
+  background-image:url("assets/envelope-panel-left.png")!important;
+}
+.velvet-envelope .flap-right{
+  inset:0!important;width:100%!important;height:100%!important;
+  clip-path:polygon(100% 0,50% 53.5%,100% 100%)!important;
+  background-image:url("assets/envelope-panel-right.png")!important;
+}
+.velvet-envelope .flap-bottom{
+  inset:0!important;width:100%!important;height:100%!important;
+  clip-path:polygon(0 100%,50% 53.5%,100% 100%)!important;
+  background-image:url("assets/envelope-panel-bottom.png")!important;
+}
+</style>
+
+
+<style>
+/* Requested refinement: clean four-flap envelope, slower synchronized opening, full lace-paper letter. */
+.velvet-envelope{
+  overflow:hidden!important;
+  border-radius:3px!important;
+}
+.velvet-envelope .envelope-back{
+  inset:0!important;
+  background-image:url("assets/envelope-velvet-lace.jpg")!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border:0!important;
+  box-shadow:inset 0 0 0 1px rgba(235,195,151,.55)!important;
+}
+.velvet-envelope .envelope-flap,
+.velvet-envelope .envelope-fold{
+  background-image:url("assets/envelope-velvet-lace.jpg")!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border:0!important;
+  box-shadow:none!important;
+  transition:transform 1.9s cubic-bezier(.16,1,.3,1)!important;
+  backface-visibility:hidden!important;
+}
+.velvet-envelope .flap-top{
+  clip-path:polygon(0 0,100% 0,50% 53.5%)!important;
+}
+.velvet-envelope .flap-left{
+  clip-path:polygon(0 0,50% 53.5%,0 100%)!important;
+}
+.velvet-envelope .flap-right{
+  clip-path:polygon(100% 0,50% 53.5%,100% 100%)!important;
+}
+.velvet-envelope .flap-bottom{
+  clip-path:polygon(0 100%,50% 53.5%,100% 100%)!important;
+}
+/* Hide the insert completely while closed; after the four flaps move away,
+   the lace stationery fills the whole envelope and hides its lower body. */
+.velvet-envelope .envelope-letter{
+  z-index:9!important;
+  inset:0!important;left:0!important;right:0!important;top:0!important;
+  width:100%!important;height:100%!important;
+  padding:18% 13% 17%!important;
+  border:0!important;border-radius:0!important;
+  background:url("assets/envelope-letter-lace.jpg") center center / 100% 100% no-repeat!important;
+  box-shadow:none!important;
+  color:#8a5b25!important;
+  opacity:0!important;visibility:hidden!important;
+  transform:scale(.97)!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  text-align:center!important;
+  transition:opacity .75s ease 1.18s,transform 1.15s cubic-bezier(.16,1,.3,1) 1.18s,visibility 0s linear 1.18s!important;
+}
+.velvet-envelope .letter-kicker,
+.velvet-envelope .letter-names,
+.velvet-envelope .letter-date{
+  font-family:"Bodoni Moda",Georgia,serif!important;
+  color:#9b713c!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.45)!important;
+  text-transform:none!important;
+  letter-spacing:.025em!important;
+  white-space:normal!important;
+}
+.velvet-envelope .letter-kicker{
+  font-size:clamp(17px,3.1vw,25px)!important;
+  line-height:1.45!important;
+  margin:0 0 16px!important;
+}
+.velvet-envelope .letter-names{
+  font-size:clamp(29px,5.2vw,43px)!important;
+  line-height:1.18!important;
+}
+.velvet-envelope .letter-date{
+  font-size:clamp(21px,3.8vw,29px)!important;
+  line-height:1.2!important;
+  margin-top:16px!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+  opacity:1!important;visibility:visible!important;
+  transform:scale(1)!important;
+  transition:opacity .75s ease 1.18s,transform 1.15s cubic-bezier(.16,1,.3,1) 1.18s,visibility 0s!important;
+}
+.velvet-envelope.is-opening .flap-top{transform:rotateX(-170deg)!important}
+.velvet-envelope.is-opening .flap-left{transform:rotateY(-170deg)!important}
+.velvet-envelope.is-opening .flap-right{transform:rotateY(170deg)!important}
+.velvet-envelope.is-opening .flap-bottom{transform:rotateX(170deg)!important}
+.velvet-envelope .wax-seal{z-index:10!important}
+@media(max-width:700px){
+ .velvet-envelope .envelope-letter{padding:19% 13% 18%!important}
+ .velvet-envelope .letter-kicker{font-size:clamp(16px,4.5vw,21px)!important;margin-bottom:13px!important}
+ .velvet-envelope .letter-names{font-size:clamp(27px,7vw,35px)!important}
+ .velvet-envelope .letter-date{font-size:clamp(20px,5.5vw,26px)!important;margin-top:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .velvet-envelope .flap-top,.velvet-envelope .flap-left,.velvet-envelope .flap-right,.velvet-envelope .flap-bottom,
+ .velvet-envelope .envelope-letter{transition-duration:.01ms!important}
+}
+</style>
+
+
+
+<style>
+/* SINGLE PHOTO ENVELOPE: remove the duplicated drawn envelope and align all flap textures */
+.velvet-envelope{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+  background:transparent!important;
+  border:0!important;
+  perspective:1800px!important;
+  transform-style:preserve-3d!important;
+}
+.velvet-envelope .envelope-back{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  border:0!important;
+  border-radius:3px!important;
+  background:
+    radial-gradient(ellipse at 22% 18%,rgba(255,225,210,.08),transparent 42%),
+    linear-gradient(145deg,#4b1022 0%,#360817 100%)!important;
+  box-shadow:inset 0 0 24px rgba(0,0,0,.35)!important;
+}
+/* Each flap is a clipped section of the SAME photograph, so the closed envelope
+   reads as one image instead of several offset envelope illustrations. */
+.velvet-envelope .envelope-flap,
+.velvet-envelope .envelope-fold{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  border:0!important;
+  margin:0!important;
+  padding:0!important;
+  background-image:url("assets/envelope-velvet-lace.jpg")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:none!important;
+  filter:none!important;
+  pointer-events:none!important;
+  backface-visibility:hidden!important;
+  transform-style:preserve-3d!important;
+  transition:transform 2.15s cubic-bezier(.22,.72,.18,1)!important;
+}
+/* Remove the old decorative pink ribbon/line pseudo-elements entirely. */
+.velvet-envelope .envelope-flap:before,
+.velvet-envelope .envelope-flap:after,
+.velvet-envelope .envelope-fold:before,
+.velvet-envelope .envelope-fold:after{
+  content:none!important;
+  display:none!important;
+}
+/* Four matching triangular panels; all share one image coordinate system. */
+.velvet-envelope .flap-top{
+  z-index:5!important;
+  clip-path:polygon(0 0,100% 0,50% 52%)!important;
+  transform-origin:50% 0!important;
+}
+.velvet-envelope .flap-left{
+  z-index:4!important;
+  clip-path:polygon(0 0,50% 52%,0 100%)!important;
+  transform-origin:0 50%!important;
+}
+.velvet-envelope .flap-right{
+  z-index:4!important;
+  clip-path:polygon(100% 0,50% 52%,100% 100%)!important;
+  transform-origin:100% 50%!important;
+}
+.velvet-envelope .flap-bottom{
+  z-index:6!important;
+  clip-path:polygon(0 100%,50% 52%,100% 100%)!important;
+  transform-origin:50% 100%!important;
+}
+.velvet-envelope .wax-seal{
+  z-index:9!important;
+  left:50%!important;
+  top:52%!important;
+  transform:translate(-50%,-50%)!important;
+}
+.velvet-envelope.is-opening .flap-top{transform:rotateX(-168deg)!important}
+.velvet-envelope.is-opening .flap-left{transform:rotateY(-168deg)!important}
+.velvet-envelope.is-opening .flap-right{transform:rotateY(168deg)!important}
+.velvet-envelope.is-opening .flap-bottom{transform:rotateX(168deg)!important}
+.velvet-envelope.is-opening .wax-seal{
+  opacity:0!important;
+  transform:translate(-50%,-50%) scale(.72)!important;
+  transition:opacity .45s ease,transform .65s ease!important;
+}
+.velvet-envelope .envelope-letter{
+  z-index:2!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  box-sizing:border-box!important;
+  background:url("assets/envelope-letter-lace.jpg") center center/100% 100% no-repeat!important;
+  border:0!important;
+  box-shadow:none!important;
+  transition:opacity 1.05s ease .45s,transform 1.45s cubic-bezier(.2,.7,.2,1) .15s,visibility 0s linear 1.6s!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:scale(1)!important;
+  transition:opacity 1.05s ease .45s,transform 1.45s cubic-bezier(.2,.7,.2,1) .15s,visibility 0s!important;
+}
+@media(max-width:700px){
+  .velvet-envelope .envelope-flap,
+  .velvet-envelope .envelope-fold{transition-duration:2.15s!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .velvet-envelope .flap-top,.velvet-envelope .flap-left,
+  .velvet-envelope .flap-right,.velvet-envelope .flap-bottom,
+  .velvet-envelope .envelope-letter,.velvet-envelope .wax-seal{
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+
+
+
+<style>
+/* Timing update only:
+   0-6s: four envelope flaps open and the letter appears;
+   6-9s: keep the letter fully visible for reading;
+   9-10s: fade to the main wedding website. */
+.velvet-envelope .envelope-flap,
+.velvet-envelope .envelope-fold{
+  transition:transform 6s cubic-bezier(.22,.72,.18,1)!important;
+}
+.velvet-envelope .envelope-letter{
+  transition:
+    opacity 4.8s ease 1.1s,
+    transform 5s cubic-bezier(.22,.72,.18,1) 1s,
+    visibility 0s linear 6s!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+  transition:
+    opacity 4.8s ease 1.1s,
+    transform 5s cubic-bezier(.22,.72,.18,1) 1s,
+    visibility 0s!important;
+}
+.envelope-screen.is-dismissed{
+  opacity:0!important;
+  visibility:hidden!important;
+  transition:opacity .9s ease,visibility 0s linear .9s!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .velvet-envelope .envelope-flap,
+  .velvet-envelope .envelope-fold,
+  .velvet-envelope .envelope-letter{
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+
+
+<style>
+/* Four real cutout layers: one shared coordinate system, one photographic envelope */
+.velvet-envelope{
+  position:relative!important;
+  width:min(72vw,450px)!important;
+  height:min(100vw,600px)!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:3px!important;
+  background:transparent!important;
+  overflow:visible!important;
+  isolation:isolate!important;
+  perspective:1800px!important;
+  transform-style:preserve-3d!important;
+  filter:drop-shadow(0 22px 28px rgba(0,0,0,.48))!important;
+  cursor:pointer!important;
+}
+.velvet-envelope .envelope-back{
+  position:absolute!important;inset:0!important;z-index:0!important;
+  display:block!important;
+  background-image:url("assets/envelope-back-texture.jpg")!important;
+  background-size:cover!important;background-position:center!important;
+  border:1px solid rgba(224,184,137,.58)!important;
+  box-shadow:inset 0 0 32px rgba(12,0,5,.32)!important;
+}
+.velvet-envelope .envelope-letter{
+  position:absolute!important;inset:2.2% 2.2% 2.2%!important;
+  z-index:1!important;
+  width:auto!important;height:auto!important;
+  margin:0!important;padding:clamp(28px,5vw,64px) 18px!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  text-align:center!important;
+  background:
+    radial-gradient(ellipse at 30% 12%,rgba(255,255,255,.82),transparent 48%),
+    repeating-linear-gradient(0deg,rgba(120,92,65,.025) 0 1px,transparent 1px 4px),
+    linear-gradient(145deg,#fffaf0 0%,#f0e3d0 58%,#e4d2ba 100%)!important;
+  border:1px solid rgba(157,119,78,.35)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+  opacity:0!important;visibility:hidden!important;
+  transform:translateY(3%) scale(.985)!important;
+  transition:opacity 2.4s ease 3.25s,transform 2.6s cubic-bezier(.2,.7,.2,1) 3.2s,visibility 0s linear 6s!important;
+}
+.velvet-envelope .letter-kicker{
+  margin:0 0 24px!important;color:#a47b45!important;
+  font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(25px,4.5vw,39px)!important;line-height:1.18!important;
+  letter-spacing:.015em!important;text-transform:none!important;font-weight:400!important;
+}
+.velvet-envelope .letter-names{
+  color:#a77a3d!important;font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(34px,6vw,51px)!important;line-height:1.12!important;
+  letter-spacing:.015em!important;white-space:normal!important;
+}
+.velvet-envelope .letter-date{
+  margin-top:24px!important;color:#a47b45!important;
+  font-family:"Pinyon Script","Bodoni Moda",serif!important;
+  font-size:clamp(27px,4.8vw,38px)!important;line-height:1.1!important;
+  letter-spacing:.08em!important;
+}
+.velvet-envelope .envelope-panel{
+  position:absolute!important;inset:0!important;
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:none!important;object-fit:fill!important;
+  pointer-events:none!important;
+  transform-style:preserve-3d!important;
+  backface-visibility:hidden!important;
+  transition:transform 6s cubic-bezier(.18,.72,.18,1)!important;
+  will-change:transform!important;
+}
+.velvet-envelope .panel-right{z-index:3!important;transform-origin:100% 50%!important}
+.velvet-envelope .panel-top{z-index:4!important;transform-origin:50% 0!important}
+.velvet-envelope .panel-bottom{z-index:2!important;transform-origin:50% 100%!important}
+.velvet-envelope .panel-left{z-index:5!important;transform-origin:0 50%!important}
+.velvet-envelope.is-opening .panel-left{transform:translateX(-12%) rotateY(-112deg)!important}
+.velvet-envelope.is-opening .panel-right{transform:translateX(12%) rotateY(112deg)!important}
+.velvet-envelope.is-opening .panel-top{transform:translateY(-13%) rotateX(-112deg)!important}
+.velvet-envelope.is-opening .panel-bottom{transform:translateY(13%) rotateX(112deg)!important}
+.velvet-envelope.is-opening .envelope-letter{
+  opacity:1!important;visibility:visible!important;
+  transform:translateY(0) scale(1)!important;
+  transition:opacity 2.4s ease 3.25s,transform 2.6s cubic-bezier(.2,.7,.2,1) 3.2s,visibility 0s!important;
+}
+.velvet-envelope.is-opening .envelope-back{
+  box-shadow:inset 0 0 18px rgba(12,0,5,.18)!important;
+}
+.envelope-screen.is-dismissed{
+  opacity:0!important;visibility:hidden!important;
+  transition:opacity 1s ease,visibility 0s linear 1s!important;
+}
+@media(max-width:700px){
+  .velvet-envelope{width:min(82vw,390px)!important;height:min(116vw,550px)!important}
+  .velvet-envelope .letter-kicker{font-size:clamp(22px,6vw,30px)!important;margin-bottom:18px!important}
+  .velvet-envelope .letter-names{font-size:clamp(29px,7vw,39px)!important}
+  .velvet-envelope .letter-date{font-size:clamp(24px,6vw,32px)!important;margin-top:18px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .velvet-envelope .envelope-panel,.velvet-envelope .envelope-letter,
+  .envelope-screen.is-dismissed{transition-duration:.01ms!important}
+}
+</style>
+
+
+<style>
+/* Focused correction: keep the velvet backing inside the envelope silhouette
+   and use the lace-edged paper reference for the entire revealed letter. */
+.velvet-envelope{
+  overflow:visible!important;
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  -webkit-appearance:none!important;
+  appearance:none!important;
+}
+.velvet-envelope::before,
+.velvet-envelope::after{
+  content:none!important;
+  display:none!important;
+}
+.velvet-envelope .envelope-back{
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  border:0!important;
+  border-radius:2px!important;
+  background:
+    radial-gradient(ellipse at 28% 18%,rgba(255,220,205,.08),transparent 43%),
+    linear-gradient(145deg,#4b1022 0%,#360817 100%)!important;
+  box-shadow:inset 0 0 26px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+}
+.velvet-envelope .envelope-letter{
+  inset:0!important;
+  left:0!important;right:0!important;top:0!important;bottom:0!important;
+  width:100%!important;height:100%!important;
+  box-sizing:border-box!important;
+  padding:20% 14% 19%!important;
+  border:0!important;border-radius:0!important;
+  background-image:url("assets/envelope-letter-lace.jpg")!important;
+  background-position:center center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  z-index:1!important;
+}
+@media(max-width:700px){
+  .velvet-envelope .envelope-letter{
+    padding:20% 14% 19%!important;
+    background-size:100% 100%!important;
+  }
+}
+</style>
+
+
+<style>
+/* Envelope base: restore the velvet lining as the bottom beneath the four
+   moving flaps, clipped to the actual envelope silhouette. */
+.velvet-envelope{
+  background:transparent!important;
+  overflow:visible!important;
+}
+.velvet-envelope .envelope-back{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-image:url("assets/envelope-back-texture.jpg")!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  clip-path:polygon(8.5% 7.9%,90.1% 7.9%,90.1% 91.9%,8.5% 91.9%)!important;
+  box-shadow:inset 0 0 28px rgba(12,0,5,.34)!important;
+  overflow:hidden!important;
+}
+</style>
+
+
+<style>
+/* Animation-only refinement: each flap stays hinged to its own edge.
+   No outward translation, so the envelope opens like paper rather than exploding. */
+.velvet-envelope{
+  perspective:1800px!important;
+  transform-style:preserve-3d!important;
+}
+.velvet-envelope .envelope-panel{
+  transition:transform 6s cubic-bezier(.42,0,.18,1)!important;
+  transform-style:preserve-3d!important;
+  backface-visibility:hidden!important;
+}
+.velvet-envelope .panel-left{
+  transform-origin:0% 50%!important;
+}
+.velvet-envelope .panel-right{
+  transform-origin:100% 50%!important;
+}
+.velvet-envelope .panel-top{
+  transform-origin:50% 0%!important;
+}
+.velvet-envelope .panel-bottom{
+  transform-origin:50% 100%!important;
+}
+.velvet-envelope.is-opening .panel-left{
+  transform:rotateY(-158deg)!important;
+}
+.velvet-envelope.is-opening .panel-right{
+  transform:rotateY(158deg)!important;
+}
+.velvet-envelope.is-opening .panel-top{
+  transform:rotateX(158deg)!important;
+}
+.velvet-envelope.is-opening .panel-bottom{
+  transform:rotateX(-158deg)!important;
+}
+</style>
+
+
+<style>
+/* True hinge alignment: pivots sit on the actual envelope fold edges,
+   not on the transparent PNG canvas edges. The velvet backing stays fixed. */
+.velvet-envelope{
+  perspective:2200px!important;
+  transform-style:preserve-3d!important;
+}
+.velvet-envelope .envelope-panel{
+  transition:transform 6s cubic-bezier(.38,.04,.18,1)!important;
+  transform-style:preserve-3d!important;
+  backface-visibility:hidden!important;
+  will-change:transform!important;
+}
+/* Left and right vertical folds are inset from the transparent image bounds. */
+.velvet-envelope .panel-left{
+  transform-origin:8.5% 50%!important;
+}
+.velvet-envelope .panel-right{
+  transform-origin:90% 50%!important;
+}
+/* Top and bottom horizontal folds are likewise inset from the PNG bounds. */
+.velvet-envelope .panel-top{
+  transform-origin:57% 8.2%!important;
+}
+.velvet-envelope .panel-bottom{
+  transform-origin:54% 91.5%!important;
+}
+.velvet-envelope.is-opening .panel-left{
+  transform:rotateY(-155deg)!important;
+}
+.velvet-envelope.is-opening .panel-right{
+  transform:rotateY(155deg)!important;
+}
+.velvet-envelope.is-opening .panel-top{
+  transform:rotateX(155deg)!important;
+}
+.velvet-envelope.is-opening .panel-bottom{
+  transform:rotateX(-155deg)!important;
+}
+</style>
+
 </body>
+
+<style>
+/* The invitation is fixed to the envelope lining: it never slides or floats.
+   It sits above the velvet bottom and beneath all four hinged flap cutouts. */
+.velvet-envelope .envelope-letter{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  width:100%!important;
+  height:100%!important;
+  box-sizing:border-box!important;
+  transform:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  transition:opacity 2.8s ease 1.1s,visibility 0s linear 6s!important;
+  will-change:opacity!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+  transform:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transition:opacity 2.8s ease 1.1s,visibility 0s!important;
+}
+</style>
+
+
+<style>
+/* Letter-as-envelope-floor: fixed within the envelope silhouette, beneath all flaps. */
+.velvet-envelope .envelope-letter{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  box-sizing:border-box!important;
+  z-index:1!important;
+  margin:0!important;
+  overflow:hidden!important;
+  clip-path:polygon(8.5% 7.9%,90.1% 7.9%,90.1% 91.9%,8.5% 91.9%)!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  transform:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  box-shadow:none!important;
+  border:0!important;
+}
+.velvet-envelope.is-opening .envelope-letter{
+  z-index:1!important;
+  transform:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+/* Keep the approved four moving panels above the letter-floor. */
+.velvet-envelope .panel-left{z-index:5!important}
+.velvet-envelope .panel-top{z-index:4!important}
+.velvet-envelope .panel-right{z-index:3!important}
+.velvet-envelope .panel-bottom{z-index:2!important}
+</style>
+
+
+<style>
+/* Slightly inset the stationery so its complete lace edging remains visible
+   inside the envelope, with no part extending beyond the envelope silhouette. */
+.velvet-envelope .envelope-letter{
+  inset:3.2% 3.2% 3.2%!important;
+  width:auto!important;
+  height:auto!important;
+  clip-path:none!important;
+  border-radius:1px!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  overflow:hidden!important;
+}
+</style>
+
+
+<style>
+/* Scale the complete lace letter down proportionally; never crop its edges. */
+.velvet-envelope .envelope-letter{
+  left:6%!important;
+  right:6%!important;
+  top:4%!important;
+  bottom:4%!important;
+  inset:4% 6%!important;
+  width:88%!important;
+  height:92%!important;
+  box-sizing:border-box!important;
+  clip-path:none!important;
+  overflow:visible!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+@media(max-width:700px){
+  .velvet-envelope .envelope-letter{
+    inset:4% 6%!important;
+    width:88%!important;
+    height:92%!important;
+    background-size:contain!important;
+  }
+}
+</style>
+
+
+<style>
+/* Fit the ENTIRE stationery image inside the envelope; reduce its box rather
+   than cropping it. Scale all lettering down with the smaller paper. */
+.velvet-envelope .envelope-letter{
+  top:11%!important;
+  right:12%!important;
+  bottom:11%!important;
+  left:12%!important;
+  inset:11% 12%!important;
+  width:auto!important;
+  height:auto!important;
+  clip-path:none!important;
+  overflow:visible!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  padding:8% 7%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+.velvet-envelope .letter-kicker{
+  font-size:clamp(11px,1.9vw,17px)!important;
+  line-height:1.3!important;
+  margin:0 0 clamp(7px,1.2vw,12px)!important;
+  max-width:100%!important;
+  white-space:normal!important;
+}
+.velvet-envelope .letter-names{
+  font-size:clamp(15px,2.5vw,22px)!important;
+  line-height:1.18!important;
+  max-width:100%!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+.velvet-envelope .letter-date{
+  font-size:clamp(12px,2vw,17px)!important;
+  line-height:1.2!important;
+  margin-top:clamp(7px,1.2vw,12px)!important;
+  max-width:100%!important;
+}
+@media(max-width:700px){
+  .velvet-envelope .envelope-letter{
+    inset:11% 12%!important;
+    padding:8% 6%!important;
+    background-size:contain!important;
+  }
+  .velvet-envelope .letter-kicker{font-size:clamp(10px,3vw,14px)!important}
+  .velvet-envelope .letter-names{font-size:clamp(13px,3.6vw,18px)!important}
+  .velvet-envelope .letter-date{font-size:clamp(10px,3vw,14px)!important}
+}
+</style>
+
+
+<style>
+/* PROGRAM TIMELINE ONLY — reveal one event at a time as the heart travels. */
+#program .timeline{
+  position:relative!important;
+}
+#program .timeline .event{
+  opacity:0!important;
+  visibility:hidden!important;
+  transition:
+    opacity .85s ease,
+    transform 1.05s cubic-bezier(.22,.72,.18,1),
+    visibility 0s linear .85s!important;
+  will-change:opacity,transform;
+}
+/* First and third events enter from the left; second and fourth from the right. */
+#program .timeline article.event:nth-of-type(1),
+#program .timeline article.event:nth-of-type(3){
+  width:42%!important;
+  margin-left:0!important;
+  margin-right:58%!important;
+  padding-left:10px!important;
+  padding-right:10px!important;
+  text-align:right!important;
+  transform:translateX(-58px)!important;
+}
+#program .timeline article.event:nth-of-type(2),
+#program .timeline article.event:nth-of-type(4){
+  width:42%!important;
+  margin-left:58%!important;
+  margin-right:0!important;
+  padding-left:10px!important;
+  padding-right:10px!important;
+  text-align:left!important;
+  transform:translateX(58px)!important;
+}
+/* Only the event nearest the scrolling heart is visible; earlier events fade away. */
+#program .timeline .event.active{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:translateX(0)!important;
+  transition:
+    opacity .85s ease,
+    transform 1.05s cubic-bezier(.22,.72,.18,1),
+    visibility 0s!important;
+}
+#program .timeline .event.seen{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+/* Keep the original wave and heart visible from the beginning. */
+#program .timeline-svg,
+#program .timeline-heart{visibility:visible!important;opacity:1!important}
+@media(max-width:700px){
+  #program .timeline article.event:nth-of-type(1),
+  #program .timeline article.event:nth-of-type(3){
+    width:43%!important;
+    margin-left:0!important;
+    margin-right:57%!important;
+    padding-left:5px!important;
+    padding-right:6px!important;
+    transform:translateX(-34px)!important;
+  }
+  #program .timeline article.event:nth-of-type(2),
+  #program .timeline article.event:nth-of-type(4){
+    width:43%!important;
+    margin-left:57%!important;
+    margin-right:0!important;
+    padding-left:6px!important;
+    padding-right:5px!important;
+    transform:translateX(34px)!important;
+  }
+  #program .timeline .event.active{transform:translateX(0)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #program .timeline .event{transition-duration:.01ms!important}
+}
+</style>
+
+
+<style>
+/* PROGRAM TIMELINE ONLY — larger copy and a softly glowing gold hand-drawn heart. */
+#program .timeline .event h3{
+  font-size:clamp(29px,3.5vw,42px)!important;
+  line-height:1.16!important;
+}
+#program .timeline .event time{
+  font-size:clamp(15px,1.5vw,18px)!important;
+}
+#program .timeline .event p{
+  font-size:clamp(17px,1.65vw,20px)!important;
+  line-height:1.55!important;
+}
+#program .timeline-heart{
+  width:58px!important;
+  height:58px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:transparent!important;
+  display:grid!important;
+  place-items:center!important;
+  transform:translate(-50%,-50%)!important;
+}
+#program .timeline-heart-drawing{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  fill:none;
+  stroke:#e9c477;
+  stroke-width:5.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 3px rgba(244,207,128,.95))
+         drop-shadow(0 0 9px rgba(218,166,76,.72));
+  animation:timelineHeartGlow 2.8s ease-in-out infinite;
+}
+#program .timeline-heart-drawing path+path{
+  stroke-width:3.5;
+  opacity:.82;
+}
+@keyframes timelineHeartGlow{
+  0%,100%{filter:drop-shadow(0 0 2px rgba(244,207,128,.7)) drop-shadow(0 0 6px rgba(218,166,76,.48))}
+  50%{filter:drop-shadow(0 0 5px rgba(255,224,157,1)) drop-shadow(0 0 13px rgba(218,166,76,.85))}
+}
+@media(max-width:700px){
+  #program .timeline .event h3{font-size:clamp(22px,5.2vw,29px)!important}
+  #program .timeline .event time{font-size:12px!important}
+  #program .timeline .event p{font-size:13px!important;line-height:1.5!important}
+  #program .timeline-heart{width:47px!important;height:47px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #program .timeline-heart-drawing{animation:none!important}
+}
+</style>
+
 </html>
+
+<style>
+/* Photographic antique-gold wax seal asset */
+.wax-seal{
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  width:112px!important;height:112px!important;
+  padding:0!important;display:block!important;
+}
+.wax-seal:before{display:none!important}
+.wax-seal img{
+  display:block;width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 4px 5px rgba(0,0,0,.42));
+}
+@media(max-width:700px){.wax-seal{width:96px!important;height:96px!important}}
+</style>
